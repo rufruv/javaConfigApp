@@ -43,17 +43,17 @@ public class Index extends AppCompatActivity {
         ui.addView(btn);
         setContentView(ui);
         /* 위에까지가 화면구성(xml) */
-
         ViewGroup.MarginLayoutParams tvMargin = new ViewGroup.MarginLayoutParams(tv.getLayoutParams());
         tvMargin.setMargins(0,200,0,0);
-        btn.setLayoutParams(new LinearLayout.LayoutParams(tvMargin));
+        tv.setLayoutParams(new LinearLayout.LayoutParams(tvMargin));
         ViewGroup.MarginLayoutParams btnMargin = new ViewGroup.MarginLayoutParams(btn.getLayoutParams());
         btnMargin.setMargins(0,300,0,0);
         btn.setLayoutParams(new LinearLayout.LayoutParams(btnMargin));
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"HELLOW",Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"HELLO",Toast.LENGTH_LONG).show();
             }
         });
     }
