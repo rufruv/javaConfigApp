@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hanbit.javaconfigapp.factory.LayoutParamsFactory;
 import com.hanbit.javaconfigapp.mamber.MemberList;
 
 public class Index extends AppCompatActivity {
@@ -23,27 +24,15 @@ public class Index extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final Context context = Index.this;
         LinearLayout ui = new LinearLayout(context);
-        LinearLayout.LayoutParams matchAndMatch = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-        LinearLayout.LayoutParams matchAndWrap = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        LinearLayout.LayoutParams wrapAndMatch = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-        LinearLayout.LayoutParams wrapAndWrap = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
         ui.setOrientation(LinearLayout.VERTICAL);
-        ui.setLayoutParams(matchAndMatch);
+        ui.setLayoutParams(LayoutParamsFactory.createLayoutParams("mm"));
         TextView tv = new TextView(context);
         tv.setText("HELLO");
-        tv.setLayoutParams(matchAndWrap);
+        tv.setLayoutParams(LayoutParamsFactory.createLayoutParams("mw"));
         ui.addView(tv);
         Button btn = new Button(context);
         btn.setText("ENTER");
-        btn.setLayoutParams(matchAndWrap);
+        btn.setLayoutParams(LayoutParamsFactory.createLayoutParams("mw"));
         btn.setBackgroundColor(Color.parseColor("#00ff00"));
         ui.addView(btn);
         setContentView(ui);
@@ -83,11 +72,11 @@ public class Index extends AppCompatActivity {
                     "  salary TEXT\n" +
                     ");";
             db.execSQL(sql);
-        for (int i = 0; i < 10; i++) {
+        /*for (int i = 0; i < 10; i++) {
             db.execSQL(String.format("INSERT INTO Member(name,phone,age,address,salary)\n" +
                             " VALUES('%s','%s','%s','%s','%s'); \n"
                     , "홍길동" + i, "010-0000-000" + i, "2" + i, "서울", (i + 1) + "00"));
-        }
+        }*/
         }
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
