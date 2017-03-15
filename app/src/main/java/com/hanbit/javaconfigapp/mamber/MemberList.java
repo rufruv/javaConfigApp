@@ -31,9 +31,11 @@ public class MemberList extends AppCompatActivity {
         ListView lv = new ListView(context);
         lv.setLayoutParams(LayoutParamsFactory.createLayoutParams("mw"));
         ui.addView(lv);
+        LinearLayout ui2 = new LinearLayout(context);
+
 
         final ListView listView = lv;
-        final InMemberList mList = new InMemberList(MemberList.this);
+        final InMemberList mList = new InMemberList(context);
         IList service = new IList() {
             @Override
             public ArrayList<?> list() {
